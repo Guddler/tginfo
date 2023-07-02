@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C14175382A50944200205968 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14175372A50944200205968 /* main.swift */; };
+		C113565A2A50B03000083FDE /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = C11356592A50B03000083FDE /* ArgumentParser */; };
+		C11356602A50CCB000083FDE /* header.swift in Sources */ = {isa = PBXBuildFile; fileRef = C113565E2A50C4C800083FDE /* header.swift */; };
+		C14175382A50944200205968 /* app.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14175372A50944200205968 /* app.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +25,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C14175342A50944200205968 /* tgdump */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = tgdump; sourceTree = BUILT_PRODUCTS_DIR; };
-		C14175372A50944200205968 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		C113565D2A50B24F00083FDE /* tgdump.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tgdump.entitlements; sourceTree = "<group>"; };
+		C113565E2A50C4C800083FDE /* header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = header.swift; sourceTree = "<group>"; };
+		C14175342A50944200205968 /* tginfo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = tginfo; sourceTree = BUILT_PRODUCTS_DIR; };
+		C14175372A50944200205968 /* app.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = app.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C113565A2A50B03000083FDE /* ArgumentParser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,7 +54,7 @@
 		C14175352A50944200205968 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C14175342A50944200205968 /* tgdump */,
+				C14175342A50944200205968 /* tginfo */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -57,7 +62,9 @@
 		C14175362A50944200205968 /* tgdump */ = {
 			isa = PBXGroup;
 			children = (
-				C14175372A50944200205968 /* main.swift */,
+				C113565D2A50B24F00083FDE /* tgdump.entitlements */,
+				C14175372A50944200205968 /* app.swift */,
+				C113565E2A50C4C800083FDE /* header.swift */,
 			);
 			path = tgdump;
 			sourceTree = "<group>";
@@ -65,9 +72,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C14175332A50944200205968 /* tgdump */ = {
+		C14175332A50944200205968 /* tginfo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C141753B2A50944200205968 /* Build configuration list for PBXNativeTarget "tgdump" */;
+			buildConfigurationList = C141753B2A50944200205968 /* Build configuration list for PBXNativeTarget "tginfo" */;
 			buildPhases = (
 				C14175302A50944200205968 /* Sources */,
 				C14175312A50944200205968 /* Frameworks */,
@@ -77,9 +84,12 @@
 			);
 			dependencies = (
 			);
-			name = tgdump;
+			name = tginfo;
+			packageProductDependencies = (
+				C11356592A50B03000083FDE /* ArgumentParser */,
+			);
 			productName = tgdump;
-			productReference = C14175342A50944200205968 /* tgdump */;
+			productReference = C14175342A50944200205968 /* tginfo */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -90,7 +100,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					C14175332A50944200205968 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -106,11 +116,14 @@
 				Base,
 			);
 			mainGroup = C141752B2A50944200205968;
+			packageReferences = (
+				C11356582A50B03000083FDE /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
+			);
 			productRefGroup = C14175352A50944200205968 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C14175332A50944200205968 /* tgdump */,
+				C14175332A50944200205968 /* tginfo */,
 			);
 		};
 /* End PBXProject section */
@@ -120,7 +133,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C14175382A50944200205968 /* main.swift in Sources */,
+				C11356602A50CCB000083FDE /* header.swift in Sources */,
+				C14175382A50944200205968 /* app.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,9 +174,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -220,9 +236,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -243,10 +261,15 @@
 		C141753C2A50944200205968 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = tgdump/tgdump.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = ELYCVKX4GC;
 				ENABLE_HARDENED_RUNTIME = YES;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = uk.nightweave.tginfo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -254,10 +277,15 @@
 		C141753D2A50944200205968 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = tgdump/tgdump.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = ELYCVKX4GC;
 				ENABLE_HARDENED_RUNTIME = YES;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = uk.nightweave.tginfo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -274,7 +302,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C141753B2A50944200205968 /* Build configuration list for PBXNativeTarget "tgdump" */ = {
+		C141753B2A50944200205968 /* Build configuration list for PBXNativeTarget "tginfo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C141753C2A50944200205968 /* Debug */,
@@ -284,6 +312,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C11356582A50B03000083FDE /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-argument-parser.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C11356592A50B03000083FDE /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C11356582A50B03000083FDE /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C141752C2A50944200205968 /* Project object */;
 }
